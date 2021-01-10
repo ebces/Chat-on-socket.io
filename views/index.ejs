@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+  <title>Chat App</title>
+</head>
+<body>
+  <main>
+    <h1 class="title">Chat on Websocket</h1>
+    <p class="online-users"></p>
+    <div class="change-name-area">
+      <p class="change-name-area__user-name"></p>
+      <input type="text" class="change-name-area__input" placeholder="Enter the name">
+      <button class="change-name-area__button">OK</button>
+    </div>
+    <div class="chat-history"></div>
+    <div class="input-area">
+      <textarea class="input-area__input" placeholder="Enter the message"></textarea>
+      <button class="input-area__button">Send</button>
+    </div>
+  </main>
+  <script src="chat.js"></script>
+</body>
+</html>

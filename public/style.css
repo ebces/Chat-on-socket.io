@@ -1,0 +1,129 @@
+:root {
+    --grey: #dbdbdb;
+    --green1: #e7f5dc;
+    --green2: #c0dfc2;
+    --green3: #64ac8f;
+    --green4: #4b6154;
+}
+
+body {
+    background-color: var(--grey);
+    color: var(--green1);
+    margin: 0;
+}
+
+.title {
+    text-align: center;
+    margin: 0;
+}
+
+main {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    max-width: 800px;
+    background-color: var(--green4);
+    box-shadow: var(--green4) 0px 0px 10px;
+    box-sizing: border-box;
+}
+
+.online-users {
+    text-align: center;
+    margin: 0;
+}
+
+.change-name-area {
+    margin-bottom: 5px;
+}
+
+.change-name-area__user-name {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.change-name-area__button,
+.change-name-area__input,
+.input-area__input,
+.input-area__button {
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--green1);
+    color: var(--green4);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.change-name-area__button,
+.input-area__button {
+    transition: .2s;
+    cursor: pointer;
+}
+
+.change-name-area__button:hover,
+.input-area__button:hover {
+    background-color: var(--green3);
+    color: var(--green1);
+}
+
+.chat-history {
+    width: 100%;
+    background-color: var(--green2);
+    height: 100%;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+.input-area {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    margin: 10px 0;
+}
+
+.input-area__input {
+    width: 80%;
+    height: 100%;
+    resize: none;
+}
+
+.input-area__button {
+    width: 15%;
+    height: 100%;
+}
+
+.chat-history__post {
+    width: 60%;
+    border-radius: 5px;
+    background-color: var(--green3);
+    margin: 5px;
+    padding: 5px;
+    word-wrap: break-word;
+}
+
+.chat-history__my-post {
+    width: 60%;
+    border-radius: 5px;
+    background-color: var(--green4);
+    margin: 5px 5px 5px auto;
+    padding: 5px;
+    word-wrap: break-word;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--green3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--green1);
+}
