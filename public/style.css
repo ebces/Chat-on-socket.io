@@ -114,6 +114,12 @@ main {
     word-wrap: break-word;
 }
 
+.typing {
+    height: 35px;
+    margin: 0;
+    margin-top: 5px;
+}
+
 ::-webkit-scrollbar {
     width: 5px;
     background-color: transparent;
