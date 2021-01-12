@@ -72,10 +72,11 @@ sendMessageButton.addEventListener('click', () => {
 
 socket.on('newMessage', (data) => {
   const { username, message, color } = data;
+  const { messageValue, date } = message;
   const messageData = {
     username,
-    messageValue: message.messageValue,
-    date: message.date,
+    messageValue,
+    date,
   };
 
   const stylesData = {
