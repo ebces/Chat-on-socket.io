@@ -9,6 +9,7 @@ const usersOnline = document.querySelector('.online-users');
 const currentUserName = document.querySelector('.change-name-area__user-name');
 const typingMessage = document.querySelector('.typing');
 
+const DEFAULT_COLOR = '#e7f5dc';
 let user = 'Anonymous';
 let typingTimeout;
 
@@ -20,16 +21,24 @@ const changeCurrentUserName = () => {
   changeNameInput.value = '';
 };
 
-const createNewPost = (userName, messageValue, styles, date) => {
+const createNewPost = (messageData, stylesData) => {
+  const { username, messageValue, date } = messageData;
+  const { style, color } = stylesData;
+
   const post = document.createElement('div');
-  const name = document.createElement('p');
+  const name = document.createElement('span');
+  const time = document.createElement('span');
   const message = document.createElement('p');
 
-  post.classList.add(styles);
-  name.textContent = `${userName} ${date}`;
+  post.classList.add(style);
+  name.style.fontWeight = 'bold';
+  name.textContent = `${username} `;
+  time.textContent = date;
+  name.style.color = color;
   message.textContent = messageValue;
 
   post.append(name);
+  post.append(time);
   post.append(message);
   chat.append(post);
 };
@@ -43,19 +52,38 @@ sendMessageButton.addEventListener('click', () => {
   if (!messageInput.value) return;
 
   const date = new Date().toLocaleTimeString();
+  const messageData = {
+    username: user,
+    messageValue: messageInput.value,
+    date,
+  };
+  const stylesData = {
+    style: 'chat-history__my-post',
+    color: DEFAULT_COLOR,
+  };
 
   socket.emit('sendMessage', { messageValue: messageInput.value, date });
 
-  createNewPost(user, messageInput.value, 'chat-history__my-post', date);
+  createNewPost(messageData, stylesData);
   chat.scrollTop = chat.scrollHeight;
   messageInput.value = '';
   messageInput.focus();
 });
 
 socket.on('newMessage', (data) => {
-  const { username, message } = data;
+  const { username, message, color } = data;
+  const messageData = {
+    username,
+    messageValue: message.messageValue,
+    date: message.date,
+  };
 
-  createNewPost(username, message.messageValue, 'chat-history__post', message.date);
+  const stylesData = {
+    style: 'chat-history__post',
+    color,
+  };
+
+  createNewPost(messageData, stylesData);
   chat.scrollTop = chat.scrollHeight;
 });
 
