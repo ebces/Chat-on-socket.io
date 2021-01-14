@@ -5,7 +5,7 @@
 Using:
 
 ```shell
-$ switch to gh-pages
+$ git checkout gh-pages
 $ npm install
 $ npm run start
 ```
