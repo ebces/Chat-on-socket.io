@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-const PORT = '3000';
+const PORT = 3000;
 const server = app.listen(PORT, () => console.log('Server is running...'));
 
 const io = require('socket.io')(server);
