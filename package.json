@@ -4,7 +4,7 @@
   "description": "simple chat app with nodejs and socket",
   "main": "app.js",
   "scripts": {
-    "open": "start http://localhost:3000",
+    "open": "start http://localhost:3000 || open http://localhost:3000",
     "start": "npm run open && nodemon server"
   },
   "author": "",
