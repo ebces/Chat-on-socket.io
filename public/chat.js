@@ -33,8 +33,9 @@ const createNewPost = (messageData, stylesData) => {
   post.classList.add(style);
   name.style.fontWeight = 'bold';
   name.textContent = `${username} `;
-  time.textContent = date;
   name.style.color = color;
+  time.textContent = date;
+  message.style.marginBottom = 0
   message.textContent = messageValue;
 
   post.append(name);
